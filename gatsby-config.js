@@ -28,9 +28,6 @@ module.exports = {
         short_name: `starter`,
         start_url: `/`,
         background_color: `#663399`,
-        // This will impact how browsers show your PWA/website
-        // https://css-tricks.com/meta-theme-color-and-trickery/
-        // theme_color: `#663399`,
         display: `minimal-ui`,
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
@@ -48,7 +45,6 @@ module.exports = {
         name: `repo-one`,
         remote: `https://github.com/IORoot/gatsby-git-content.git`,
         branch: `master`,
-        // Only import the docs folder from a codebase.
         patterns: ["**/*"],
       }
     },
