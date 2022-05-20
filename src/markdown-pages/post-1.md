@@ -1,7 +1,10 @@
 ---
-slug: "/blog/my-first-post"
+slug: "/projects/my-first-post"
 date: "2019-05-04"
-title: "My first blog post"
+title: "(local) My first blog post"
 ---
 
-test
+
+# test from /markdown-pages
+
+/projects/my-first-post

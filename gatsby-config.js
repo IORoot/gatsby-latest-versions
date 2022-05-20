@@ -5,9 +5,15 @@ module.exports = {
     author: `@gatsbyjs`,
     siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
   },
+
+
+
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-remark`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -15,8 +21,6 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -34,10 +38,19 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `markdown-pages`,
+        name: `projects`,
         path: `${__dirname}/src/markdown-pages`,
       },
     },
-    `gatsby-transformer-remark`,
+    {
+      resolve: `gatsby-source-git`,
+      options: {
+        name: `repo-one`,
+        remote: `https://github.com/IORoot/gatsby-git-content.git`,
+        branch: `master`,
+        // Only import the docs folder from a codebase.
+        patterns: ["**/*"],
+      }
+    },
   ],
 }
