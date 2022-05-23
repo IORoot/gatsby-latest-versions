@@ -1,14 +1,6 @@
 import * as React from 'react'
 import { Link } from 'gatsby'
 import { useStaticQuery, graphql } from 'gatsby'
-import {
-  container,
-  heading,
-  navLinks,
-  navLinkItem,
-  navLinkText,
-  siteTitle,
-} from './layout.module.css'
 
 
 const Layout = ({ pageTitle, children }) => {
@@ -34,24 +26,24 @@ const Layout = ({ pageTitle, children }) => {
 
 
   return (
-    <div className={container}>
+    <div className="container mx-auto max-w-3xl">
       <title>{pageTitle} | {data.site.siteMetadata.title}</title>
-      <header className={siteTitle}>{data.site.siteMetadata.title}</header>
+      <header className="text-6xl font-bold text-purple-700 my-10">{data.site.siteMetadata.title}</header>
       
       <nav>
-        <ul className={navLinks}>
-          <li className={navLinkItem}>
-            <Link to="/" className={navLinkText}>
+        <ul className="flex flex-row gap-4 text-purple-400 mb-8">
+          <li className="hover:text-blue-500">
+            <Link to="/">
               Home
             </Link>
           </li>
-          <li className={navLinkItem}>
-            <Link to="/about" className={navLinkText}>
+          <li className="hover:text-blue-500">
+            <Link to="/about">
               About
             </Link>
           </li>
-          <li className={navLinkItem}>
-            <Link to="/projects" className={navLinkText}>
+          <li className="hover:text-blue-500">
+            <Link to="/projects">
               Projects
             </Link>
           </li>
@@ -59,7 +51,7 @@ const Layout = ({ pageTitle, children }) => {
         </ul>
       </nav>
       <main>
-        <h1 className={heading}>{pageTitle}</h1>
+        <h1 className="text-3xl font-bold text mb-4" >{pageTitle}</h1>
         {children}
       </main>
     </div>

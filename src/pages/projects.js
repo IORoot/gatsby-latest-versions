@@ -24,12 +24,12 @@ const ProjectsPage = () => {
     `)
 
     return (
-        <Layout pageTitle="My Projects">
-            <ul>
+        <Layout pageTitle="Projects">
+            <ul className="flex flex-col gap-4">
                 {
                     data.allMdx.nodes.map(nodes => (
                         <li key={nodes.id}>
-                            <Link to={nodes.frontmatter.slug}>
+                            <Link className="text-orange-500 hover:text-blue-500" to={nodes.frontmatter.slug}>
                                 {nodes.frontmatter.title}.
                             </Link>
                             <span> {nodes.frontmatter.date}</span>
