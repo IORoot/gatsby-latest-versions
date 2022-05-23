@@ -7,33 +7,32 @@ import {
 } from 'gatsby'
 
 const ProjectsPage = () => {
-
+    
     const data = useStaticQuery(graphql`
         query {
-            allMarkdownRemark {
-            edges {
-                node {
+            allMdx(sort: {fields: frontmatter___date, order: DESC}) {
+            nodes {
                 id
                 frontmatter {
                     title
                     slug
-                }
+                    date(formatString: "MMMM D, YYYY")
                 }
             }
             }
         }
-        
     `)
 
     return (
         <Layout pageTitle="My Projects">
             <ul>
                 {
-                    data.allMarkdownRemark.edges.map(edges => (
-                        <li key={edges.node.id}>
-                            <Link to={edges.node.frontmatter.slug}>
-                                {edges.node.frontmatter.title}
+                    data.allMdx.nodes.map(nodes => (
+                        <li key={nodes.id}>
+                            <Link to={nodes.frontmatter.slug}>
+                                {nodes.frontmatter.title}.
                             </Link>
+                            <span> {nodes.frontmatter.date}</span>
                         </li>
                     ))
                 }
