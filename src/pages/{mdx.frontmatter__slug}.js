@@ -12,7 +12,7 @@ const ProjectPage = ({ data }) => {
   return (
     <Layout pageTitle={data.mdx.frontmatter.title}>
       <div className="blog-post-container"> 
-        <div className="blog-post">
+        <div className="blog-post prose">
 
           <h2>{data.mdx.frontmatter.date}</h2>
 
@@ -22,7 +22,7 @@ const ProjectPage = ({ data }) => {
           />
           
           <MDXRenderer>{data.mdx.body}</MDXRenderer>
-          
+
         </div>
       </div>
     </Layout>
