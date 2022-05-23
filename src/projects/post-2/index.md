@@ -2,6 +2,7 @@
 slug: "/projects/my-second-post"
 date: "2022-05-23"
 title: "(local) My second blog post"
+hero_image: "station.jpeg"
 ---
 
 
