@@ -29,7 +29,7 @@ const ProjectsPage = () => {
                 {
                     data.allMdx.nodes.map(nodes => (
                         <li key={nodes.id}>
-                            <Link className="text-orange-500 hover:text-blue-500" to={nodes.frontmatter.slug}>
+                            <Link className="text-emerald-800 hover:text-emerald-400" to={nodes.frontmatter.slug}>
                                 {nodes.frontmatter.title}.
                             </Link>
                             <span> {nodes.frontmatter.date}</span>
