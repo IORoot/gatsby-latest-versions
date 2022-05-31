@@ -63,6 +63,21 @@ module.exports = {
           }
         ]
       }
-    }
+    },
+
+    {
+      resolve: `gatsby-source-faunadb`,
+      options: {
+        // The secret for the key you're using to connect to your Fauna database.
+        // You can generate on of these in the "Security" tab of your Fauna Console.
+        secret: "fnAEna-hOOACS0wNo5GPNh0_izlEpF_oEf5AATHJ",
+        // The name of the index you want to query
+        // You can create an index in the "Indexes" tab of your Fauna Console.
+        index: `allVersions`,
+        // This is the name under which your data will appear in Gatsby GraphQL queries
+        // The following will create queries called `allBird` and `bird`.
+        type: "versions",
+      },
+    },
   ],
 }

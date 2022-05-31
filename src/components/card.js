@@ -1,24 +1,24 @@
 import * as React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
+import SVG from './svg'
 
-
-const Card = ({ pageTitle, children }) => {
+const Card = () => {
 
     const data = useStaticQuery(graphql`
         query {
-            allAirtable {
-            edges {
-                node {
-                id
-                data {
-                    date
+            allVersions(sort: {fields: title}) {
+                nodes {
                     id
+                    category
+                    colour1
+                    colour2
+                    company
+                    date
                     link
+                    logo_url
                     title
                     version
                 }
-                }
-            }
             }
         }
     `)
@@ -27,10 +27,12 @@ const Card = ({ pageTitle, children }) => {
         <div className="text-emerald-800">
             <div className="grid grid-cols-4 gap-4">
             {
-                data.allAirtable.edges.map(nodes => (
-                    <a href={nodes.node.data.link} target="_blank" rel="noreferrer" className="bg-stone-200 rounded flex flex-col gap-2 p-2 shadow-sm hover:bg-emerald-500 hover:text-emerald-100 no-underline" key={nodes.node.id}>
-                      <div className="m-auto text-center">{nodes.node.data.title}</div>
-                      <div className="bg-emerald-400 rounded text-center">{nodes.node.data.version}</div>
+                data.allVersions.nodes.map(nodes => (
+                    <a href={nodes.link} target="_blank" rel="noreferrer" style={{fill: nodes.colour1, backgroundColor: nodes.colour2}} className="bg-stone-200 rounded flex flex-col gap-2 p-2 shadow-sm no-underline" key={nodes.id}>
+                        <div className="m-auto text-center" style={{color: nodes.colour1}}>{nodes.company}</div>
+                        <SVG className="p-8">{nodes.logo_url}</SVG>
+                        <div className="m-auto text-center" style={{color: nodes.colour1}}>{nodes.title}</div>
+                        <div className="rounded text-center" style={{backgroundColor: nodes.colour1, color: nodes.colour2}}>{nodes.version}</div>
                     </a>
                 ))
             }
