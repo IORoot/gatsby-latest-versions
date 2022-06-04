@@ -7,35 +7,53 @@ const Card = () => {
     const data = useStaticQuery(graphql`
         query {
             allVersions(sort: {fields: title}) {
-                nodes {
+                group(field: category) {
+                edges {
+                    node {
                     id
-                    category
                     colour1
                     colour2
                     company
                     date
+                    category
                     link
                     logo_url
                     title
                     version
+                    }
+                }
                 }
             }
         }
     `)
 
-    return (
+    return ( 
         <div className="text-emerald-800">
             <div className="grid grid-cols-4 gap-4">
+
             {
-                data.allVersions.nodes.map(nodes => (
-                    <a href={nodes.link} target="_blank" rel="noreferrer" style={{fill: nodes.colour1, backgroundColor: nodes.colour2}} className="bg-stone-200 rounded flex flex-col gap-2 p-2 shadow-sm no-underline" key={nodes.id}>
-                        <div className="m-auto text-center" style={{color: nodes.colour1}}>{nodes.company}</div>
-                        <SVG className="p-8">{nodes.logo_url}</SVG>
-                        <div className="m-auto text-center" style={{color: nodes.colour1}}>{nodes.title}</div>
-                        <div className="rounded text-center" style={{backgroundColor: nodes.colour1, color: nodes.colour2}}>{nodes.version}</div>
-                    </a>
-                ))
+
+                data.allVersions.group.map((group,index) => {
+                    
+                        var groups = group.edges.map(nodes => (
+
+                            <a href={nodes.node.link} target="_blank" rel="noreferrer" style={{fill: nodes.node.colour1, backgroundColor: nodes.node.colour2}} className="hover:shadow-xl hover:border-2 hover:border-emerald-200 rounded flex flex-col gap-2 p-2 shadow-sm no-underline" key={nodes.node.id}>
+                                <div className="m-auto text-center" style={{color: nodes.node.colour1}}>{nodes.node.company}</div>
+                                <SVG className="p-8">{nodes.node.logo_url}</SVG>
+                                <div className="m-auto text-center" style={{color: nodes.node.colour1}}>{nodes.node.title}</div>
+                                <div className="rounded text-center" style={{backgroundColor: nodes.node.colour1, color: nodes.node.colour2}}>{nodes.node.version}</div>
+                            </a>
+                        ))
+
+                        groups.unshift(<div className="text-3xl col-span-4 border-b mt-20" key={index}>{group.edges[0].node.category}</div>);
+
+                        return groups;
+                    }
+                )
+
             }
+
+            
             </div>
         </div> 
     )
