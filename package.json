@@ -39,7 +39,7 @@
   ],
   "license": "0BSD",
   "scripts": {
-    "build": "rm -rf .cache/gatsby-source-git/ && gatsby build",
+    "build": "NPM_CONFIG_LEGACY_PEER_DEPS=true && rm -rf .cache/gatsby-source-git/ && gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md,css}\"",
     "start": "gatsby develop",
