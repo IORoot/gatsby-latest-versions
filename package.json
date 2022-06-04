@@ -27,6 +27,11 @@
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0"
   },
+
+  "overrides": {
+    "gatsby": "^4.14.1"
+  },
+
   "devDependencies": {
     "autoprefixer": "^10.4.7",
     "gatsby-plugin-postcss": "^5.14.0",
@@ -39,7 +44,7 @@
   ],
   "license": "0BSD",
   "scripts": {
-    "build": "NPM_CONFIG_LEGACY_PEER_DEPS=true && rm -rf .cache/gatsby-source-git/ && gatsby build",
+    "build": "rm -rf .cache/gatsby-source-git/ && gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md,css}\"",
     "start": "gatsby develop",
