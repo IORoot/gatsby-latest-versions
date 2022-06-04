@@ -8,7 +8,7 @@ const IndexPage = () => {
   return (
     <Layout pageTitle="Home">
       <h1 className="text-1xl text mb-4" >Latest Versions</h1>
-      <p className='mb-10'>This is my first attempt at a Gatsby / Tailwind website.</p>   
+      <p className=''>A single location for all the latest versions of stuff.</p>   
       <Card/>
     </Layout>
   )
