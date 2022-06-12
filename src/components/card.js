@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
-import SVG from './svg'
+import Svg from './svg'
 
 const Card = () => {
 
@@ -37,9 +37,9 @@ const Card = () => {
                     
                         var groups = group.edges.map(nodes => (
 
-                            <a href={nodes.node.link} target="_blank" rel="noreferrer" style={{fill: nodes.node.colour1, backgroundColor: nodes.node.colour2}} className="hover:shadow-xl hover:border-2 hover:border-emerald-200 rounded flex flex-col gap-2 p-2 shadow-sm no-underline" key={nodes.node.id}>
+                            <a href={nodes.node.link} target="_blank" rel="noreferrer" style={{fill: nodes.node.colour1, backgroundColor: nodes.node.colour2}} className="hover:shadow-xl hover:border-2 hover:border-orange-200 rounded flex flex-col gap-2 p-2 shadow-sm no-underline" key={nodes.node.id}>
                                 <div className="m-auto text-center" style={{color: nodes.node.colour1}}>{nodes.node.company}</div>
-                                <SVG className="p-8">{nodes.node.logo_url}</SVG>
+                                <Svg className="p-8">{nodes.node.logo_url}</Svg>
                                 <div className="m-auto text-center" style={{color: nodes.node.colour1}}>{nodes.node.title}</div>
                                 <div className="rounded text-center" style={{backgroundColor: nodes.node.colour1, color: nodes.node.colour2}}>{nodes.node.version}</div>
                             </a>

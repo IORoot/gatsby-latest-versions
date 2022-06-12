@@ -23,31 +23,23 @@ const Layout = ({ pageTitle, children }) => {
       }
   `)
 
-
-
   return (
     <div className="container mx-auto max-w-3xl">
       <title>{pageTitle} | {data.site.siteMetadata.title}</title>
-      <header className="text-6xl font-bold text-emerald-800 my-10">{data.site.siteMetadata.title}</header>
+      <header className="text-6xl font-bold text-orange-800 my-10">{data.site.siteMetadata.title}</header>
       
       <nav>
-        <ul className="flex flex-row gap-4 text-emerald-600 mb-8">
-          <li className="hover:text-emerald-400">
+        <ul className="flex flex-row gap-4 text-orange-600 mb-8">
+          <li className="hover:text-orange-400">
             <Link to="/">
               Home
             </Link>
           </li>
-          <li className="hover:text-emerald-400">
+          <li className="hover:text-orange-400">
             <Link to="/about">
               About
             </Link>
           </li>
-          <li className="hover:text-emerald-400">
-            <Link to="/projects">
-              Projects
-            </Link>
-          </li>
-
         </ul>
       </nav>
       <main>

@@ -6,9 +6,7 @@ import Card from '../components/card'
 const IndexPage = () => {
 
   return (
-    <Layout pageTitle="Home">
-      <h1 className="text-1xl text mb-4" >Latest Versions</h1>
-      <p className=''>A single location for all the latest versions of stuff.</p>   
+    <Layout pageTitle="">
       <Card/>
     </Layout>
   )

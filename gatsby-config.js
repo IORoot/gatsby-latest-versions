@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: `IORoot`,
-    description: `IORoot pages`,
+    title: `LatestVersions`,
+    description: `LatestVersions website`,
     author: `github.com/ioroot`,
     siteUrl: `https://cute-maamoul-f8d341.netlify.app/`,
   },
@@ -36,13 +36,6 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `projects`,
-        path: `${__dirname}/src/projects`,
-      },
-    },
-    {
       resolve: `gatsby-source-git`,
       options: {
         name: `repo-one`,
@@ -51,20 +44,6 @@ module.exports = {
         patterns: ["**/*"],
       }
     },
-    {
-      resolve: `gatsby-source-airtable`,
-      options: {
-        apiKey: `keyOtFXVVALGtAgsJ`, // may instead specify via env, see below
-        concurrency: 5, // default, see using markdown and attachments for more information
-        tables: [
-          {
-            baseId: `app8NMPBTR6QCoYX2`,
-            tableName: `versions`
-          }
-        ]
-      }
-    },
-
     {
       resolve: `gatsby-source-faunadb`,
       options: {
